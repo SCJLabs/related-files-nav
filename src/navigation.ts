@@ -52,12 +52,12 @@ const namespaces: Namespace[] = [
 ]
 
 export default class Navigation {
-  root: string = '';
+  workspaceRoot: string = '';
   currentFilePath: string = '';
 
   constructor() {
     this.currentFilePath = vscode.window.activeTextEditor?.document.fileName || '';
-    this.root = vscode.workspace.getWorkspaceFolder(vscode.Uri.file(this.currentFilePath))?.uri.path || '';
+    this.workspaceRoot = vscode.workspace.getWorkspaceFolder(vscode.Uri.file(this.currentFilePath))?.uri.path || '';
   }
 
   openFile(path: string = '') {
@@ -68,7 +68,7 @@ export default class Navigation {
   }
 
   getDisplayDescription(file: vscode.Uri) {
-    return file.path.replace(this.root, "");
+    return file.path.replace(this.workspaceRoot, "");
   }
 
   getNamespace(file: vscode.Uri): Namespace | undefined  {

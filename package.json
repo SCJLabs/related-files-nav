@@ -3,6 +3,7 @@
 	"displayName": "summit-ember-nav",
 	"description": "Ember file and folder navigation helper for large projects",
 	"version": "0.0.1",
+	"publisher": "scjlabs",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
