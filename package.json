@@ -1,8 +1,8 @@
 {
   "name": "related-files-nav",
 	"displayName": "related-files-nav",
-	"description": "Ember file and folder navigation helper for large projects",
-	"version": "0.0.1",
+	"description": "Related file navigation helper for large projects",
+	"version": "1.0.0",
 	"publisher": "scjlabs",
 	"engines": {
 		"vscode": "^1.54.0"
