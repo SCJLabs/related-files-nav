@@ -1,6 +1,6 @@
 {
-  "name": "summit-ember-nav",
-	"displayName": "summit-ember-nav",
+  "name": "related-files-nav",
+	"displayName": "related-files-nav",
 	"description": "Ember file and folder navigation helper for large projects",
 	"version": "0.0.1",
 	"publisher": "scjlabs",
@@ -10,22 +10,22 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-        "onCommand:summit-ember-nav.helloWorld"
-	],
 	"main": "./out/extension.js",
+	"activationEvents": [
+		"onCommand:related-files-nav.showRelatedFiles"
+	],
 	"contributes": {
 		"commands": [
 			{
-				"command": "summit-ember-nav.helloWorld",
-				"title": "Hello World"
+				"command": "related-files-nav.showRelatedFiles",
+				"title": "Show Related Files"
 			}
 		],
     "keybindings": [
       {
-        "command": "summit-ember-nav.helloWorld",
-        "key": "ctrl+alt+i",
-        "mac": "cmd+alt+i",
+        "command": "related-files-nav.showRelatedFiles",
+        "key": "ctrl+alt+.",
+        "mac": "cmd+alt+.",
         "when": "editorTextFocus"
       }
     ]

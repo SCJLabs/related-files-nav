@@ -1,4 +1,4 @@
-# summit-ember-nav README
+# related-files-nav README
 
 This extension is used for quickly accessing related files in large projects
 with a "branched" folder structure such as [EmberJS](https://emberjs.com/).
@@ -10,7 +10,7 @@ with a "branched" folder structure such as [EmberJS](https://emberjs.com/).
 
 ## Default Keybinding
 
-* Mac: `option` + `command` + `i`
+* Mac: `option` + `command` + `.`
 
 ## Example Usage
 
