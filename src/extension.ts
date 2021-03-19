@@ -16,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('related-files-nav.showRelatedFiles', () => {
 		// The code you place here will be executed every time your command is executed
-		new Navigation().execute();
+		new Navigation().showRelatedFiles();
 	});
 
 	context.subscriptions.push(disposable);

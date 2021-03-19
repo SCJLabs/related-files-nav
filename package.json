@@ -24,8 +24,8 @@
     "keybindings": [
       {
         "command": "related-files-nav.showRelatedFiles",
-        "key": "ctrl+alt+.",
-        "mac": "cmd+alt+.",
+        "key": "ctrl+shift+.",
+        "mac": "cmd+shift+.",
         "when": "editorTextFocus"
       }
     ]

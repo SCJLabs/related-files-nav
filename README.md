@@ -10,7 +10,7 @@ with a "branched" folder structure such as [EmberJS](https://emberjs.com/).
 
 ## Default Keybinding
 
-* Mac: `option` + `command` + `.`
+* Mac: `command` + `shift` + `.`
 
 ## Example Usage
 

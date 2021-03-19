@@ -104,7 +104,7 @@ export default class Navigation {
   /**
    * Main
    */
-  async execute() {
+  async showRelatedFiles() {
     const currentFile: path.ParsedPath = path.parse(this.currentFilePath);
 
     const relatedFiles: vscode.Uri[] = await this.getRelatedFiles(currentFile);
@@ -142,7 +142,5 @@ export default class Navigation {
         selection.onClick();
       }
     });
-
-    // vscode.window.showInformationMessage('Message from nav execute');
   }
 }
