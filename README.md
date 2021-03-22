@@ -61,3 +61,20 @@ options for selecting/opening its related files:
 ### 1.0.0
 
 Initial release
+
+## Developing
+
+Build:
+
+* To build the vscode package, run the following command from the project root:
+
+  `vsce package`
+
+  The above command will build a file named `related-files-nav-1.0.0.vsix` where
+`1.0.0` is the version specified in `package.json`.
+
+Install:
+
+* To install the package built above to your local vscode installation
+
+  `code --install-extension related-files-nav-1.0.0.vsix`
