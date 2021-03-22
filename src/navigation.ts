@@ -76,10 +76,11 @@ export default class Navigation {
   }
 
   getDisplayLabel(file: vscode.Uri): string  {
+    const label = this.getNamespace(file)?.label || '';
     if (file.path === this.currentFilePath) {
-      return this.getNamespace(file)?.label + '[This File]' || '';
+      return label + '[This File]';
     } else {
-      return this.getNamespace(file)?.label || '';
+      return label;
     }
   }
 
