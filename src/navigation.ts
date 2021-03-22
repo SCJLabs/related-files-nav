@@ -1,55 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
-
-interface Namespace {
-  label: string,
-  pattern: string,
-  sortOrder: number,
-}
-
-const namespaces: Namespace[] = [
-  {
-    label: 'Related: Component Route',
-    pattern: '/app/components/routes',
-    sortOrder: 2,
-  },
-  {
-    label: 'Related: Component',
-    pattern: '/app/components/',
-    sortOrder: 1,
-  },
-  {
-    label: 'Related: Route',
-    pattern: '/app/routes/',
-    sortOrder: 3,
-  },
-  {
-    label: 'Related: Controller',
-    pattern: '/app/controllers/',
-    sortOrder: 3,
-  },
-  {
-    label: 'Related: Template',
-    pattern: '/app/templates/',
-    sortOrder: 4,
-  },
-  {
-    label: 'Related: Tests - Unit',
-    pattern: '/tests/unit',
-    sortOrder: 5,
-  },
-  {
-    label: 'Related: Tests - Integration',
-    pattern: '/tests/integration',
-    sortOrder: 5,
-  },
-  {
-    label: 'Related: Tests - Acceptance',
-    pattern: '/tests/acceptance',
-    sortOrder: 5,
-  },
-]
+import { Rule, rules } from './rules';
 
 export default class Navigation {
   workspaceRoot: string = '';
@@ -71,12 +23,12 @@ export default class Navigation {
     return file.path.replace(this.workspaceRoot, "");
   }
 
-  getNamespace(file: vscode.Uri): Namespace | undefined  {
-    return namespaces.find(namespace => file.path.includes(namespace.pattern)) || undefined;
+  getRule(file: vscode.Uri): Rule | undefined  {
+    return rules.find(namespace => file.path.includes(namespace.pattern)) || undefined;
   }
 
   getDisplayLabel(file: vscode.Uri): string  {
-    const label = this.getNamespace(file)?.label || '';
+    const label = this.getRule(file)?.label || '';
     if (file.path === this.currentFilePath) {
       return label + '[This File]';
     } else {
@@ -85,7 +37,7 @@ export default class Navigation {
   }
 
   getDisplaySortOrder(file: vscode.Uri): number  {
-    return this.getNamespace(file)?.sortOrder || 0;
+    return this.getRule(file)?.sortOrder || 0;
   }
 
   async getRelatedFiles(file: path.ParsedPath): Promise<vscode.Uri[]> {
