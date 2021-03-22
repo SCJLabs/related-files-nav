@@ -4,6 +4,7 @@
 	"description": "Related file navigation helper for large projects",
 	"version": "1.0.0",
 	"publisher": "scjlabs",
+	"repository": "https://github.com/SCJLabs/related-files-nav",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
@@ -36,7 +37,9 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile && yarn run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"package": "vsce package",
+		"installDev": "code --install-extension related-files-nav-1.0.0.vsix"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.54.0",
