@@ -78,3 +78,5 @@ Install:
 * To install the package built above to your local vscode installation
 
   `code --install-extension related-files-nav-1.0.0.vsix`
+
+  Where `1.0.0` is the version in the generated filename.
