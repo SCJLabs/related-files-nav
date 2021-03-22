@@ -77,7 +77,7 @@ export default class Navigation {
 
   getDisplayLabel(file: vscode.Uri): string  {
     if (file.path === this.currentFilePath) {
-      return `${this.getNamespace(file)?.label} - [This File]` || '';
+      return this.getNamespace(file)?.label + '[This File]' || '';
     } else {
       return this.getNamespace(file)?.label || '';
     }
@@ -98,7 +98,7 @@ export default class Navigation {
     const fileName: string = file.name.replace('-test', '');
 
     return await vscode.workspace
-      .findFiles(`{app,tests}/**/{${grandparentDirName}/${parentDirName},${parentDirName}}/{${fileName},${fileName}-test}.{js,ts,hbs}`, null, 10);
+      .findFiles(`{app,tests}/**/{${grandparentDirName}/${parentDirName},${parentDirName}}/{${fileName},${fileName}-test}.{js,ts,hbs}`, null, 15);
   }
 
   /**
@@ -132,8 +132,16 @@ export default class Navigation {
       entries.push({
         label: 'Open: All',
         description: 'Open all files listed above.',
-        sortOrder: 99,
+        sortOrder: 98,
         onClick: () => relatedFiles.map(file => this.openFile(file.path)),
+      });
+
+      entries.push({
+        label: 'Open: All (excluding tests)',
+        description: 'Open all files listed above (excluding tests).',
+        sortOrder: 99,
+        onClick: () => relatedFiles.filter(file => !file.path.includes('/tests/'))
+          .map(file => this.openFile(file.path)),
       });
     }
 
