@@ -3,7 +3,7 @@
 	"displayName": "related-files-nav",
 	"description": "Related file navigation helper for large projects",
 	"version": "1.0.0",
-	"publisher": "scjlabs",
+	"publisher": "SCJLabs",
 	"repository": "https://github.com/SCJLabs/related-files-nav",
 	"engines": {
 		"vscode": "^1.54.0"
