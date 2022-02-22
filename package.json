@@ -2,7 +2,7 @@
   "name": "related-files-nav",
 	"displayName": "related-files-nav",
 	"description": "Related file navigation helper for large projects",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"publisher": "SCJLabs",
 	"repository": "https://github.com/SCJLabs/related-files-nav",
 	"engines": {
@@ -39,7 +39,7 @@
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js",
 		"package": "vsce package",
-		"installDev": "code --install-extension related-files-nav-1.0.6.vsix"
+		"installDev": "code --install-extension related-files-nav-1.0.7.vsix"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.64.0",
