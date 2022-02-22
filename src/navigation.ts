@@ -30,7 +30,7 @@ export default class Navigation {
   getDisplayLabel(file: vscode.Uri): string  {
     const label = this.getRule(file)?.label || '';
     if (file.path === this.currentFilePath) {
-      return label + '[This File]';
+      return label + ' ___[This File]___';
     } else {
       return label;
     }
@@ -43,15 +43,29 @@ export default class Navigation {
   async getRelatedFiles(file: path.ParsedPath): Promise<vscode.Uri[]> {
     const pathArray = path
       .dirname(this.currentFilePath)
-      .split(path.sep)
+      .split(path.sep);
 
-    const parentDirName: string = pathArray.pop()|| '';
-    const grandparentDirName: string = pathArray.pop()|| '';
-
+    const parentDir: string = pathArray.pop()|| '';
+    const grandparentDir: string = pathArray.pop()|| '';
     const fileName: string = file.name.replace('-test', '');
 
-    return await vscode.workspace
-      .findFiles(`{app,tests}/**/{${grandparentDirName}/${parentDirName},${parentDirName}}/{${fileName},${fileName}-test}.{js,ts,hbs}`, null, 15);
+    let related = [];
+
+    related.push(await vscode.workspace
+      .findFiles(`{app,tests}/**/{${grandparentDir}/${parentDir},${parentDir}}/{${fileName},${fileName}-test}.{js,ts,hbs}`, null, 15)
+    );
+
+    related.push(await vscode.workspace
+      .findFiles(`{app,tests}/**/${fileName}/{index,index-test}.{js,ts,hbs}`, null, 15)
+    );
+
+    if (fileName === 'index') {
+      related.push(await vscode.workspace
+        .findFiles(`{app,tests}/**/${grandparentDir}/{${parentDir},${parentDir}-test}.{js,ts,hbs}`, null, 15)
+      );
+    }
+
+    return related.reduce((a, b) => a.concat(b), []);;
   }
 
   /**
