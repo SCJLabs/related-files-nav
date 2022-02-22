@@ -1,8 +1,8 @@
 {
-  "name": "related-files-nav",
+	"name": "related-files-nav",
 	"displayName": "related-files-nav",
 	"description": "Related file navigation helper for large projects",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"publisher": "SCJLabs",
 	"repository": "https://github.com/SCJLabs/related-files-nav",
 	"engines": {
@@ -22,14 +22,14 @@
 				"title": "Show Related Files"
 			}
 		],
-    "keybindings": [
-      {
-        "command": "related-files-nav.showRelatedFiles",
-        "key": "ctrl+shift+.",
-        "mac": "cmd+shift+.",
-        "when": "editorTextFocus"
-      }
-    ]
+		"keybindings": [
+			{
+				"command": "related-files-nav.showRelatedFiles",
+				"key": "ctrl+shift+.",
+				"mac": "cmd+shift+.",
+				"when": "editorTextFocus"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
